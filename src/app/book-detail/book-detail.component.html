@@ -1,0 +1,31 @@
+<h3>{{currentBook.name}} details</h3>
+<form>
+    <div class="information">
+      name: 
+      <label *ngIf="!editMode">{{currentBook.name}}</label>
+      <input name ="name" *ngIf="editMode" [(ngModel)]="bookDetail.name">
+      <br/>
+      author: 
+      <label *ngIf="!editMode">{{currentBook.author}}</label>
+      <input name="author" *ngIf="editMode" [(ngModel)]="bookDetail.author">
+      <br/>
+      number of pages: 
+      <label *ngIf="!editMode">{{currentBook.noOfPages}}</label>
+      <input name="nop" *ngIf="editMode" [(ngModel)]="bookDetail.noOfPages">
+      <br/>
+      date of publish: 
+      <label *ngIf="!editMode">{{currentBook.dop}}</label>
+      <input name="dop" *ngIf="editMode" [(ngModel)]="bookDetail.dop">
+
+      <br/>
+      <div *ngIf="!editClicked">
+          <button (click)="editMode=true;editClicked=true;">Edit</button>
+          <button (click)="navigateToList()">Back</button>
+      </div>
+
+      <div *ngIf="editClicked">
+          <button  (click)="save(bookDetail)">Save</button>
+          <button (click)="discard()">Discard</button>
+      </div>
+    </div>
+</form>

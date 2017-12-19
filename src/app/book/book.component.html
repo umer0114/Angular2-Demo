@@ -1,0 +1,15 @@
+<p>
+  List of books
+</p>
+
+<div class="medium-8 medium-offset-2 columns">
+  <h2 class="subheader"></h2>
+  <ul>
+    <li *ngFor="let book of books | paginate: { itemsPerPage: 5, currentPage: p }">
+        <p (click)="onSelect(book)">
+          {{ book.name }}
+        </p>
+    </li>
+  </ul>
+  <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+</div>
